@@ -16,7 +16,7 @@ $ npm install --save dep-list
 var depList = require('dep-list');
 
 depList('yo', function(err, data){
-	if(!data) console.log(data)
+	if(!err) console.log(data)
 });
 
 /*
