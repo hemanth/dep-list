@@ -1,0 +1,35 @@
+{
+  "name": "dep-list",
+  "version": "0.0.0",
+  "description": "Get all the dependencies of a node module.",
+  "license": "MIT",
+  "repository": "hemanth/dep-list",
+  "author": {
+    "name": "Hemanth.HM",
+    "email": "hemanth.hm@gmail.com",
+    "url": "h3manth.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "dependencies",
+    "devDependencies",
+    "dep-list",
+    "node-module",
+    "package.json"
+  ],
+  "dependencies": {
+    "package-json": "^1.2.0",
+    "ramda": "^0.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
+}
