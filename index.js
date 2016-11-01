@@ -10,24 +10,17 @@ var parsePackage = function(data) {
 		devDependencies: devDependencies
 	}
 }
-module.exports = function (input, opts, cb) {
+module.exports = function (input, opts) {
 	if (typeof input !== 'string') {
 		throw new TypeError('Expected a string');
 	}
 	opts = opts || {};
-
-	if(typeof opts === 'function') {
-		cb = opts
-	}
 	try {
 		if (statSync(input).isFile()) {
 			cb(null, parsePackage(require(__dirname + "/" + input)));
 		}
 	} catch(err) {
-		packageJson(input, 'latest', function(err, data) {
-			if(err) return cb(err, null);
-			cb(null, parsePackage(data));
-		});
+		return packageJson(input, 'latest')
+		.then(data => parsePackage(data))
 	}
-
 };

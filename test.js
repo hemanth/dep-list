@@ -3,17 +3,19 @@ var assert = require('assert');
 var depList = require('./');
 
 it('should return dep list for a module name', function (done) {
-	depList('yo',function(err, data) {
+	depList('yo')
+	.then(data => {
 		assert.strictEqual(data.dependencies[0],'array-uniq');
 		assert.strictEqual(data.devDependencies[0],'jshint');
-		done();
 	});
+	done();
 });
 
 it('should return dep list for a given file', function (done) {
-	depList('./fixture.json',function(err, data) {
+	depList('./fixture.json')
+	.then(data => {
 		assert.strictEqual(data.dependencies[0],'array-uniq');
 		assert.strictEqual(data.devDependencies[0],'jshint');
-		done();
 	});
+	done();
 });

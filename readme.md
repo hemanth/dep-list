@@ -15,9 +15,10 @@ $ npm install --save dep-list
 ```js
 var depList = require('dep-list');
 
-depList('yo', function(err, data){
-	if(!err) console.log(data)
-});
+depList('yo')
+.then(data => console.log(data))
+.catch(err => console.error(err))
+
 
 /*
 { dependencies:
@@ -64,7 +65,7 @@ depList('yo', function(err, data){
 
 ## API
 
-### depList(input, cb)
+### depList(input, opts)
 
 #### input
 
@@ -73,10 +74,10 @@ Type: `file path` or `string`
 
 Module name or path to `package.json`
 
-#### cb
-*Required*  
+#### opts
+*optional*  
 
-Callback function.
+opts as in `package-json` module.
 
 
 ## License
