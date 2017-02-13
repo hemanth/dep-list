@@ -1,6 +1,6 @@
 {
   "name": "dep-list",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Get all the dependencies of a node module.",
   "license": "MIT",
   "repository": "hemanth/dep-list",
