@@ -27,7 +27,7 @@
   ],
   "dependencies": {
     "package-json": "^4.0.0",
-    "ramda": "^0.23.0"
+    "ramda": "^0.24.0"
   },
   "devDependencies": {
     "mocha": "^3.2.0"
