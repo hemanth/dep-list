@@ -1,10 +1,10 @@
 'use strict';
-var packageJson = require('package-json');
+var packageJson = ((m) => (m && m.default) ? m.default : m)(require('package-json'));
 var statSync = require('fs').statSync;
 var R = require('ramda');
 var parsePackage = function(data) {
-	var devDependencies = R.keys(R.prop(['devDependencies'],data)).sort();
-	var dependencies = R.keys(R.prop(['dependencies'],data)).sort();
+	var devDependencies = R.keys(R.prop('devDependencies', data)).sort();
+	var dependencies = R.keys(R.prop('dependencies', data)).sort();
 	return {
 		dependencies: dependencies,
 		devDependencies: devDependencies
@@ -20,7 +20,7 @@ module.exports = function (input, opts) {
 			cb(null, parsePackage(require(__dirname + "/" + input)));
 		}
 	} catch(err) {
-		return packageJson(input, 'latest')
+		return packageJson(input, { version: 'latest', fullMetadata: true })
 		.then(data => parsePackage(data))
 	}
 };
